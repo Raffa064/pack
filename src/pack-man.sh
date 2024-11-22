@@ -35,13 +35,13 @@ function man/which() {
 } 
 
 function man/update() {
-  echo $PKGMAN_UPDATE $@
+  eval "$PKGMAN_UPDATE" $@
 }
 
 function man/install() {
-  echo $PKGMAN_INSTALL $@
+  eval "$PKGMAN_INSTALL" $@
 }
 
 function man/uninstall() {
-  echo $PKGMAN_UNISTALL $@
+  eval "$PKGMAN_UNISTALL" $@
 }

@@ -1,5 +1,9 @@
 import pack-man
 
+function pack/main() {
+  echo "Pack is a useful BPM package that provides utility fuunctions to work with package and package managers"
+}
+
 function pack/is_installed() {
   local pkg="$1"
   local path=$(command -v "$pkg")
