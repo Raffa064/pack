@@ -1,5 +1,6 @@
 PACKAGE_MANAGERS=(
   "apk" "apt" "pacman" "pkg" "yum" "dnf" "zypper" "brew" "emerge" "port" "nix"
+  "opkg" "snap" "flatpak" "portage" "guix" "pacapt" "rpm" "dpkg" "brew" "conda"
 )
 
 function set-pkgman() {
@@ -71,6 +72,60 @@ function set-pkgman() {
       PKGMAN_UPDATE="nix-channel --update && nix-env -u"
       PKGMAN_INSTALL="nix-env -i"
       PKGMAN_UNINSTALL="nix-env -e"
+      ;;
+    opkg)
+      PKGMAN_NAME="opkg"
+      PKGMAN_UPDATE="opkg update"
+      PKGMAN_INSTALL="opkg install"
+      PKGMAN_UNINSTALL="opkg remove"
+      ;;
+    snap)
+      PKGMAN_NAME="snap"
+      PKGMAN_UPDATE="snap refresh"
+      PKGMAN_INSTALL="snap install"
+      PKGMAN_UNINSTALL="snap remove"
+      ;;
+    flatpak)
+      PKGMAN_NAME="flatpak"
+      PKGMAN_UPDATE="flatpak update"
+      PKGMAN_INSTALL="flatpak install"
+      PKGMAN_UNINSTALL="flatpak uninstall"
+      ;;
+    portage)
+      PKGMAN_NAME="portage"
+      PKGMAN_UPDATE="emerge --sync"
+      PKGMAN_INSTALL="emerge"
+      PKGMAN_UNINSTALL="emerge --unmerge"
+      ;;
+    guix)
+      PKGMAN_NAME="guix"
+      PKGMAN_UPDATE="guix pull"
+      PKGMAN_INSTALL="guix package -i"
+      PKGMAN_UNINSTALL="guix package -r"
+      ;;
+    pacapt)
+      PKGMAN_NAME="pacapt"
+      PKGMAN_UPDATE="pacapt update"
+      PKGMAN_INSTALL="pacapt install"
+      PKGMAN_UNINSTALL="pacapt remove"
+      ;;
+    rpm)
+      PKGMAN_NAME="rpm"
+      PKGMAN_UPDATE="rpm -Uvh"
+      PKGMAN_INSTALL="rpm -ivh"
+      PKGMAN_UNINSTALL="rpm -e"
+      ;;
+    dpkg)
+      PKGMAN_NAME="dpkg"
+      PKGMAN_UPDATE="dpkg --configure -a"
+      PKGMAN_INSTALL="dpkg -i"
+      PKGMAN_UNINSTALL="dpkg -r"
+      ;;
+    conda)
+      PKGMAN_NAME="conda"
+      PKGMAN_UPDATE="conda update"
+      PKGMAN_INSTALL="conda install"
+      PKGMAN_UNINSTALL="conda remove"
       ;;
   esac
 }

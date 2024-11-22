@@ -27,7 +27,7 @@ function man/set() {
     done
   fi
 
-  import "pack.pkgmans.$pkg_manager" 
+  set-pkgman $pkg_manager 
 }
 
 function man/which() {
