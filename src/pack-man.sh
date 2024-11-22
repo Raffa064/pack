@@ -1,3 +1,4 @@
+import pack
 import pack.pkgmans
 
 function pack-man() {
